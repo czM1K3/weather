@@ -30,8 +30,7 @@ class FramesLister extends StatelessWidget {
                   padding: const EdgeInsets.all(5),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(5),
-                      color:
-                          currentUrl == e.url ? Colors.red : Colors.lightBlue),
+                      color: currentUrl == e.url ? Colors.red : Colors.blue),
                   child: Text(e.label,
                       style: const TextStyle(color: Colors.white)),
                 ),

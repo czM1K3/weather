@@ -54,10 +54,14 @@ class _MyAppState extends State<MyApp> {
               fetch();
             });
           },
+          backgroundColor: Colors.blue,
+          foregroundColor: Colors.white,
           child: const Icon(Icons.replay_outlined),
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
       ),
+      darkTheme: ThemeData.dark(),
+      themeMode: ThemeMode.system,
     );
   }
 }

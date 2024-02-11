@@ -44,6 +44,7 @@ class _MapWidgetState extends State<MapWidget> {
 
   @override
   Widget build(BuildContext context) {
+    var dark = Theme.of(context).brightness == Brightness.dark;
     return FlutterMap(
       options: MapOptions(
         center: const LatLng(49.8236, 15.7712),
@@ -80,6 +81,7 @@ class _MapWidgetState extends State<MapWidget> {
         TileLayer(
           urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
           userAgentPackageName: 'cz.madsoft.weather',
+          tileBuilder: dark ? darkModeTileBuilder : null,
         ),
         OverlayImageLayer(
           overlayImages: widget.data != null
