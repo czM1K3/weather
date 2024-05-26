@@ -45,7 +45,11 @@ class _MyAppState extends State<MyApp> {
           children: [
             MapWidget(currentUrl),
             FramesLister(
-                list: _data, setActive: setUrl, currentUrl: currentUrl),
+              list: _data,
+              size: _data?.length ?? 0,
+              setActive: setUrl,
+              currentUrl: currentUrl,
+            ),
           ],
         ),
         floatingActionButton: FloatingActionButton(
