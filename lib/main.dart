@@ -17,6 +17,7 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   String? currentUrl;
   List<Frame>? _data;
+  int cachedHash = 0;
 
   @override
   void initState() {
@@ -39,6 +40,12 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
+    if (_data != null && _data.hashCode != cachedHash) {
+      for (var i = 0; i < _data!.length; i++) {
+        precacheImage(NetworkImage(_data![i].url), context);
+      }
+      cachedHash = _data.hashCode;
+    }
     return MaterialApp(
       home: Scaffold(
         body: Stack(
